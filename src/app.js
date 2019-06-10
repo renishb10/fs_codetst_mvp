@@ -1,6 +1,10 @@
 const files = require('./utils/files');
+const basketball = require('./services/basketBall');
+const handball = require('./services/handBall');
+const { getMaxInObj } = require('./utils/helper');
 
 const init = async folderPath => {
+  let players = {};
   // Reads
   const stats = await files.read(folderPath);
   if (stats && stats.length > 0) {
@@ -9,11 +13,11 @@ const init = async folderPath => {
       switch (matchType) {
         case 'BASKETBALL':
           console.log(1, matchType);
-          console.log(stat);
+          basketball.calculate(stat, players);
           break;
         case 'HANDBALL':
           console.log(2, matchType);
-          console.log(stat);
+          handball.calculate(stat, players);
           break;
         default:
           console.log(`${matchType}, not supported`);
@@ -21,6 +25,8 @@ const init = async folderPath => {
       }
     });
   }
+  console.log(players);
+  console.log(getMaxInObj(players));
 };
 
 module.exports = {
