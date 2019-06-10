@@ -7,6 +7,8 @@ const read = async folder => {
     try {
       fs.readdirSync(folder).forEach(file => {
         var data = fs.readFileSync(folder + file, 'utf-8');
+
+        if (!data) throw new Error('Invalid Format: Empty file found!');
         content.push(data.split(os.EOL));
       });
       resolve(content);
