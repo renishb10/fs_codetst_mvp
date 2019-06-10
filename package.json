@@ -1,0 +1,30 @@
+{
+  "name": "filestage_codetest_mvp",
+  "version": "1.0.0",
+  "description": "Filestage Code Test - Most Valuable Player",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "coverage": "nyc ./node_modules/mocha/bin/mocha --recursive --ui bdd --exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renishb10/fs_codetst_mvp.git"
+  },
+  "keywords": [
+    "node",
+    "javascript",
+    "filestage"
+  ],
+  "author": "Renish Bhaskaran (renishb10@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/renishb10/fs_codetst_mvp/issues"
+  },
+  "homepage": "https://github.com/renishb10/fs_codetst_mvp#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.1"
+  }
+}
