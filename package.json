@@ -4,6 +4,7 @@
   "description": "Filestage Code Test - Most Valuable Player",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "mocha",
     "coverage": "nyc ./node_modules/mocha/bin/mocha --recursive --ui bdd --exit"
   },
