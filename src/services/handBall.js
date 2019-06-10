@@ -51,7 +51,7 @@ const getWinnerTeam = () => {
   });
 
   // TODO: What happens if the match tie up?
-  let maxTeam = getMaxInObj(teamScore);
+  let maxTeam = getMaxInObj(teamScore, 'team', 'score');
 
   return maxTeam;
 };

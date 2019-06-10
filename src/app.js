@@ -26,7 +26,7 @@ const init = async folderPath => {
     });
   }
   console.log(players);
-  console.log(getMaxInObj(players));
+  console.log(getMaxInObj(players, 'player', 'rating'));
 };
 
 module.exports = {
