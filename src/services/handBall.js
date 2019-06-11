@@ -18,7 +18,6 @@ const calculate = (stats, players) => {
     }
 
     const winnerTeam = getWinnerTeam();
-    console.log(winnerTeam);
 
     // Assign extra points for players of winning team
     reCalculatePlayersRating(winnerTeam, players);

@@ -19,7 +19,7 @@ describe('Helper Methods', () => {
   });
 
   it('should get the key that has max value in obj', async () => {
-    const data = await helper.getMaxInObj(testObj);
+    const data = await helper.getMaxInObj(testObj, 'team', 'score');
     expect(data).to.not.equal(null);
     expect(data).to.have.property('team');
     expect(data).to.have.property('score');
