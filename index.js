@@ -1,5 +1,4 @@
 // Call getMVP (Param: Folder path, that holds match files)
-//const getMVP = require('./src/app');
 const app = require('./src/mvp');
 
 console.log(
@@ -12,5 +11,17 @@ console.log(
   '----------------------------------------------------------------------------------'
 );
 
-//getMVP.init('./src/data/');
-app.getMVP('./src/data/');
+// Initializing the app here
+// We can also get it as command line arguments if needed
+app
+  .getMVP('./src/data/')
+  .then(() => {
+    console.log(
+      '----------------------------------------------------------------------------------'
+    );
+    console.log(`End: Thank you`);
+    console.log(
+      '----------------------------------------------------------------------------------'
+    );
+  })
+  .catch(e => console.log('Error: Something went wrong', e.message));

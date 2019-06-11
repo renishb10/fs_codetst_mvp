@@ -17,6 +17,19 @@ const getMaxInObj = (obj, _key = 'key', _val = 'value') => {
   };
 };
 
+// Creates and returns HashTable (Simple implementation)
+const createHashTable = (objArr, _key, _valueKey) => {
+  const hash = {};
+  if (Array.isArray(objArr) && _key && _valueKey) {
+    objArr.forEach(o => {
+      if (hash[o[_key]]) hash[o[_key]] += o[_valueKey];
+      else hash[o[_key]] = o[_valueKey];
+    });
+  }
+
+  return hash;
+};
+
 // Custom function for grouping objects in given key (not used)
 const groupBy = (objArr, key) => {
   return objArr.reduce(function(rv, x) {
@@ -46,7 +59,11 @@ const formMatchObj = inputData => {
   };
 };
 
+// TBD - Validation method, that validates input data
 const validateMatchObj = matchesObj => {
+  // TODO - Validate match type
+  // TODO - Validate necessary arguments count
+  // TODO - Validate arugments type as well
   //if (!common.SUPPORTEDGAMES.includes(inputData[0].toUpperCase())) {
   //}
 };
@@ -55,5 +72,6 @@ module.exports = {
   formMatchObj,
   groupBy,
   getMaxInObj,
-  validateMatchObj
+  validateMatchObj,
+  createHashTable
 };

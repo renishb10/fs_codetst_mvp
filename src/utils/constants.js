@@ -1,3 +1,5 @@
+// Constant variables are grouped and declared here.
+
 module.exports = {
   match: {
     BONUSPOINTS: 10,

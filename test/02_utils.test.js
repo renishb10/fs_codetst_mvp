@@ -1,7 +1,11 @@
 const expect = require('chai').expect;
 
 // Custom Dependencies
-const helper = require('../src/utils/helper');
+const helper = require('../src/utils/helpers');
+
+//////////////////////////////////////////////////////////
+// Helper methods unit testing
+//////////////////////////////////////////////////////////
 
 describe('Helper Methods', () => {
   let testObj = '';

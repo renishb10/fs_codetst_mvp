@@ -1,7 +1,9 @@
+// Custom Dependencies
 const { match } = require('../utils/constants');
-const BasketballPlayer = require('../services2/BasketballPlayer');
-const HandballPlayer = require('../services2/HandballPlayer');
+const BasketballPlayer = require('./BasketballPlayer');
+const HandballPlayer = require('./HandballPlayer');
 
+// Factory pattern for generating relevant class
 class PlayerFactory {
   constructor() {}
 

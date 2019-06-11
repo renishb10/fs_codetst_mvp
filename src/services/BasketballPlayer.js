@@ -1,5 +1,6 @@
 'use strict';
 
+// Custom Dependencies
 const Player = require('./Player');
 const Rules = require('../models/basketBallRules');
 
@@ -28,7 +29,8 @@ class BasketballPlayer extends Player {
       this.rebounds * postionRule.rebound +
       this.assists * postionRule.assist;
 
-    return playerRating;
+    const aPlayerObject = super.mapPlayerObject(playerRating, this);
+    return aPlayerObject;
   }
 }
 

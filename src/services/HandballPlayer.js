@@ -1,5 +1,6 @@
 'use strict';
 
+// Custom Dependencies
 const Player = require('./Player');
 const Rules = require('../models/handBallRules');
 
@@ -26,7 +27,8 @@ class HandballPlayer extends Player {
       this.goalsMade * postionRule.goalMade -
       this.goalsReceived * postionRule.goalReceived;
 
-    return playerRating;
+    const aPlayerObject = super.mapPlayerObject(playerRating, this);
+    return aPlayerObject;
   }
 }
 
