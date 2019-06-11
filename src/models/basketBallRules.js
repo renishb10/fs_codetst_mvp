@@ -1,3 +1,5 @@
+'use strict';
+
 const basketBallRules = {
   G: {
     name: 'Guard',
@@ -18,5 +20,8 @@ const basketBallRules = {
     assist: 3
   }
 };
+
+// Making the object freeze, so that we cannot modify the props later anywhere
+Object.freeze(basketBallRules);
 
 module.exports = basketBallRules;

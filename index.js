@@ -1,5 +1,6 @@
 // Call getMVP (Param: Folder path, that holds match files)
-const getMVP = require('./src/app');
+//const getMVP = require('./src/app');
+const app = require('./src/mvp');
 
 console.log(
   '----------------------------------------------------------------------------------'
@@ -11,4 +12,5 @@ console.log(
   '----------------------------------------------------------------------------------'
 );
 
-getMVP.init('./src/data/');
+//getMVP.init('./src/data/');
+app.getMVP('./src/data/');

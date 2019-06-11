@@ -1,7 +1,7 @@
 'use strict';
 
 const Rules = require('../models/handBallRules');
-const { getMaxInObj } = require('../utils/helper');
+const { getMaxInObj } = require('../utils/helpers');
 
 const hb = [];
 const calculate = (stats, players) => {

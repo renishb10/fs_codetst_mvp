@@ -1,7 +1,7 @@
 'use strict';
 
 const Rules = require('../models/basketBallRules');
-const { getMaxInObj } = require('../utils/helper');
+const { getMaxInObj } = require('../utils/helpers');
 
 const bb = [];
 const calculate = (stats, players) => {
