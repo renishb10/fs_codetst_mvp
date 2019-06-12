@@ -1,7 +1,7 @@
-const files = require('./utils/files');
-const basketball = require('./services/basketBall');
-const handball = require('./services/handBall');
-const { getMaxInObj } = require('./utils/helper');
+const files = require('../utils/files');
+const basketball = require('./basketBall');
+const handball = require('./handBall');
+const { getMaxInObj } = require('../utils/helpers');
 
 const init = async folderPath => {
   let players = {};
@@ -12,11 +12,9 @@ const init = async folderPath => {
       const matchType = stat[0];
       switch (matchType) {
         case 'BASKETBALL':
-          console.log(1, matchType);
           basketball.calculate(stat, players);
           break;
         case 'HANDBALL':
-          console.log(2, matchType);
           handball.calculate(stat, players);
           break;
         default:

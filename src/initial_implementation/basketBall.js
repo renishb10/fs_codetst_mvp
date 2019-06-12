@@ -1,20 +1,20 @@
 'use strict';
 
-const Rules = require('../models/handBallRules');
-const { getMaxInObj } = require('../utils/helper');
+const Rules = require('../models/basketBallRules');
+const { getMaxInObj } = require('../utils/helpers');
 
-const hb = [];
+const bb = [];
 const calculate = (stats, players) => {
   if (stats.length > 1) {
     for (let i = 1; i < stats.length; i++) {
       const args = stats[i].split(';');
 
-      if (args.length !== 7) {
+      if (args.length !== 8) {
         throw new Error('Invalid format');
       }
 
-      const hbObj = mapHandballObject(args);
-      hb.push(getPlayerRating(hbObj, players));
+      const bbObj = mapBasketballObject(args);
+      bb.push(getPlayerRating(bbObj, players));
     }
 
     const winnerTeam = getWinnerTeam();
@@ -24,26 +24,25 @@ const calculate = (stats, players) => {
   }
 };
 
-const getPlayerRating = (hbObj, players) => {
-  const postionRule = Rules[hbObj.position];
+const getPlayerRating = (bbObj, players) => {
+  const postionRule = Rules[bbObj.position];
   const playerRating =
-    postionRule.initialPoint +
-    hbObj.goalsMade * postionRule.goalMade -
-    hbObj.goalsReceived * postionRule.goalReceived;
+    bbObj.score * postionRule.scoredPoint +
+    bbObj.rebounds * postionRule.rebound +
+    bbObj.assists * postionRule.assist;
 
-  players[hbObj.nickName] =
-    typeof players[hbObj.nickName] !== 'undefined'
-      ? (players[hbObj.nickName] += playerRating)
+  //Check for key and assign accordingly in Players Hashtable
+  players[bbObj.nickName] =
+    typeof players[bbObj.nickName] !== 'undefined'
+      ? (players[bbObj.nickName] += playerRating)
       : playerRating;
-
-  hbObj.rating = playerRating;
-
-  return hbObj;
+  bbObj.rating = playerRating;
+  return bbObj;
 };
 
 const getWinnerTeam = () => {
   const teamScore = {};
-  hb.forEach(r => {
+  bb.forEach(r => {
     teamScore[r.team] =
       typeof teamScore[r.team] === 'undefined' ? 0 : teamScore[r.team];
     teamScore[r.team] += r.rating;
@@ -56,21 +55,22 @@ const getWinnerTeam = () => {
 };
 
 const reCalculatePlayersRating = (winnerTeam, players) => {
-  hb.forEach(record => {
+  bb.forEach(record => {
     if (record.team == winnerTeam.team) players[record.nickName] += 10;
   });
 };
 
 // TODO: Array to Objects if any?
-const mapHandballObject = args => {
+const mapBasketballObject = args => {
   return {
     playerName: args[0],
     nickName: args[1],
     number: args[2],
     team: args[3],
     position: args[4],
-    goalsMade: args[5],
-    goalsReceived: args[6],
+    score: args[5],
+    rebounds: args[6],
+    assists: args[7],
     rating: 0
   };
 };

@@ -1,3 +1,5 @@
+'use strict';
+
 const handBallRules = {
   G: {
     name: 'Goalkeeper',
@@ -12,5 +14,8 @@ const handBallRules = {
     goalReceived: 1
   }
 };
+
+// Making the object freeze, so that we cannot modify the props later anywhere
+Object.freeze(handBallRules);
 
 module.exports = handBallRules;

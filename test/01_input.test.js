@@ -1,7 +1,12 @@
+// Dependencies
 const expect = require('chai').expect;
 
 // Custom Dependencies
 const files = require('../src/utils/files');
+
+//////////////////////////////////////////////////////////
+// File read unit testing
+//////////////////////////////////////////////////////////
 
 describe('Read Files', () => {
   it('should be able to read files', async () => {
@@ -13,7 +18,9 @@ describe('Read Files', () => {
     try {
       const data = await files.read('./test/data/');
     } catch (error) {
-      expect(error.message).to.equal('Invalid Format: Empty file found!');
+      expect(error.message).to.equal(
+        'Error: Invalid Format - Empty file found!'
+      );
     }
   });
 });
